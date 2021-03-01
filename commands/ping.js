@@ -1,5 +1,3 @@
-const message = require("../events/message")
-
 module.exports = {
     name: 'ping',
     run: ({ bot, message }) => {
