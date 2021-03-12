@@ -1,5 +1,5 @@
 {
-    "channel": "700454995086016612",
+    "channel": "819902023838203915",
     "emojis": {
         "bell": "Events",
         "UXUI": "UI/UX - Design",
@@ -15,10 +15,10 @@
         "python": "Python",
         "java": "Java",
         "php": "PHP",
-        "CCC": "C,C++,C#",
+        "CCC": "C, C++, C#",
         "TypeScript": "TypeScript",
         "kotlin": "Kotlin",
-        "ruby": "ruby",
+        "ruby": "Ruby",
         "black_large_square": "black",
         "purple_square": "purple",
         "blue_square": "blue",
@@ -28,7 +28,7 @@
         "macOs": "MacOS",
         "windows": "Windows",
         "linux": "Linux",
-        "thumbsup": "Experienced",
+        "+1": "Experienced",
         "man_shrugging": "Intermediate",
         "question": "Beginner",
         "sunglasses": "Bump Squad"

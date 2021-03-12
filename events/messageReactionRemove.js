@@ -2,7 +2,7 @@ let roles = require('../roles.json')
 let gemoji = require('gemoji/emoji-to-name')
 
 module.exports = {
-    name: 'messageReactionAdd',
+    name: 'messageReactionRemove',
     run: async (bot, reaction, user) => {
         if (reaction.partial) {
             await reaction.fetch().catch(console.error)
@@ -17,7 +17,7 @@ module.exports = {
         if (!roleName) return
         let role = guild.roles.cache
             .find(role => role.name === roleName)
-        member.roles.add(role).catch(console.error)
-        console.log(`${user.tag} added role: ${roleName}`)
+        member.roles.remove(role).catch(console.error)
+        console.log(`${user.tag} removed role: ${roleName}`)
     }
 }

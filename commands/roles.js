@@ -13,6 +13,7 @@ module.exports = {
         let embed = new MessageEmbed()
             .setColor(0x2F3136)
             .setDescription(description)
+            .addField('Role Channel', `<#${roles.channel}>`)
         message.channel.send(embed)
     }
 }
