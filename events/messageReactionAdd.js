@@ -14,7 +14,7 @@ module.exports = {
         let emojiName = !reaction.emoji.id ?
             gemoji[reaction.emoji.name] : reaction.emoji.name
         if (!emojiName) return
-        let roleName = roles.emojis[emojiName]
+        let roleName = roles[emojiName]
         if (!roleName) return
         let role = guild.roles.cache
             .find(role => role.name === roleName)
