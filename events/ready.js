@@ -1,5 +1,5 @@
 let ms = require('ms')
-let guild = process.env.GUILD
+let { guild } = require('../config.json')
 
 module.exports = {
     name: 'ready',

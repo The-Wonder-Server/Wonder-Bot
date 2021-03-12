@@ -1,4 +1,5 @@
 let roles = require('../roles.json')
+let { channels } = require('../config.json')
 let gemoji = require('gemoji/emoji-to-name')
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
         if (reaction.partial) {
             await reaction.fetch().catch(console.error)
         }
-        if (reaction.message.channel.id !== roles.channel) return
+        if (reaction.message.channel.id !== channels.roles) return
         let guild = reaction.message.guild
         let member = guild.members.cache.get(user.id)
         let emojiName = !reaction.emoji.id ?
