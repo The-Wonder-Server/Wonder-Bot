@@ -6,7 +6,8 @@ let discord = require('discord.js')
 let bot = new discord.Client({
     ws: {
         intents: discord.Intents.ALL
-    } 
+    },
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 })
 
 bot.commands = new discord.Collection()
