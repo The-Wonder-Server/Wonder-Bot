@@ -11,7 +11,7 @@ module.exports = {
         }, ms('10s'))
         setInterval(() => {
             let channel = bot.channels.cache.get(channels.bots)
-            channel.send(`<@819899948559630348> Time to bump! \`!d bump\``)
+            channel.send(`<@&819899948559630348> Time to bump! \`!d bump\``)
         },  ms('2h'))
     }
 }
