@@ -18,6 +18,6 @@ module.exports = {
         if (!roleID) return
         let role = guild.roles.cache.get(roleID)
         member.roles.remove(role).catch(console.error)
-        console.log(`${user.tag} removed role: ${roleName}`)
+        console.log(`${user.tag} removed role: ${role.name}`)
     }
 }

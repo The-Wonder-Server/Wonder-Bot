@@ -18,6 +18,6 @@ module.exports = {
         if (!roleID) return
         let role = guild.roles.cache.get(roleID)
         member.roles.add(role).catch(console.error)
-        console.log(`${user.tag} added role: ${roleName}`)
+        console.log(`${user.tag} added role: ${role.name}`)
     }
 }
