@@ -1,15 +1,17 @@
 let roles = require('../roles.json')
-let { channels } = require('../config.json')
 let { MessageEmbed } = require('discord.js')
+let { guild, channels } = require('../config.json')
 
 module.exports = {
     name: 'roles',
     run: ({ bot, message }) => {
         let description = ''
-        for (let [emojiName, role] of Object.entries(roles)) {
+        guild = bot.guilds.cache.get(guild)
+        for (let [emojiName, roleID] of Object.entries(roles)) {
             let emoji = bot.emojis.cache
                 .find(emoji => emoji.name === emojiName)
-            description += `${emoji ?? `:${emojiName}:`} **${emojiName}**: ${role || 'N/A'}\n`
+            let role = guild.roles.cache.get(roleID)
+            description += `${emoji ?? `:${emojiName}:`} \`:${emojiName}:\` ${role.name || 'N/A'}\n`
         }
         let embed = new MessageEmbed()
             .setColor(0x2F3136)

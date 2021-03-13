@@ -14,10 +14,9 @@ module.exports = {
         let emojiName = !reaction.emoji.id ?
             gemoji[reaction.emoji.name] : reaction.emoji.name
         if (!emojiName) return
-        let roleName = roles[emojiName]
-        if (!roleName) return
-        let role = guild.roles.cache
-            .find(role => role.name === roleName)
+        let roleID = roles[emojiName]
+        if (!roleID) return
+        let role = guild.roles.cache.get(roleID)
         member.roles.remove(role).catch(console.error)
         console.log(`${user.tag} removed role: ${roleName}`)
     }
