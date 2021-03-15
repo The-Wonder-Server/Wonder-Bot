@@ -5,7 +5,7 @@ module.exports = {
     name: 'poll',
     run: ({ bot, args, message }) => {
         let question = args.join(' ')
-        if (!question) return message.channel.send('Supply message!')
+        if (!question) return message.channel.send('Supply question!')
         let embed = new MessageEmbed()
             .setColor(0x2F3136)
             .setTitle('POLL')
