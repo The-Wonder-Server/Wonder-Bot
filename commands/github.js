@@ -1,8 +1,6 @@
-let { github } = require('../config.json')
-
 module.exports = {
     name: 'github',
-    run: ({ message }) => {
-        message.channel.send(github)
+    run: ({ bot, message }) => {
+        message.channel.send(bot.github)
     }
 }

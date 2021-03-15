@@ -1,4 +1,5 @@
 require('dotenv').config()
+require('module-alias/register')
 
 let fs = require('fs')
 let discord = require('discord.js')
@@ -10,19 +11,23 @@ let bot = new discord.Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 })
 
+bot.guild = {}
+bot.invites = {}
+bot.github = process.env.GITHUB
+bot.production = process.env.PROD
 bot.commands = new discord.Collection()
 
 fs.readdirSync('commands').forEach(file => {
-    let command = require(`./commands/${file}`)
+    let command = require(`@commands/${file}`)
     bot.commands.set(command.name, command)
 })
 
 fs.readdirSync('events').forEach(file => {
-    let event = require(`./events/${file}`)
+    let event = require(`@events/${file}`)
     bot.on(event.name, event.run.bind(null, bot))
 })
 
 bot.login(process.env.TOKEN)
 
-process.on('unhandledRejection', console.error)
 process.on('uncaughtException', console.error)
+process.on('unhandledRejection', console.error)

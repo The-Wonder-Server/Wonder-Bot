@@ -1,13 +1,15 @@
 let ms = require('ms')
-let { guild, channels } = require('../config.json')
 
 module.exports = {
     name: 'ready',
-    run: bot => {
+    run: async bot => {
         console.log(`Logged in as ${bot.user.tag}!`)
+        bot.guild = bot.guilds.cache.get(process.env.GUILD)
         setInterval(() => {
-            let { memberCount } = bot.guilds.cache.get(guild)
+            let { memberCount } = bot.guild
             bot.user.setActivity(`${memberCount} Members`, { type: 'WATCHING' })
         }, ms('1m'))
+        if (!bot.production) return
+        bot.invites = await bot.guild.fetchInvites()
     }
 }

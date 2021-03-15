@@ -1,5 +1,5 @@
 let ms = require('ms')
-let { channels } = require('../config.json')
+let channels = require('@settings/channels')
 
 let prefix = process.env.PREFIX
 let startBumpTimeout = bot => {
@@ -14,6 +14,7 @@ module.exports = {
     run: (bot, message) => {
         if (message.author.bot) return
         if (message.content === '!d bump') {
+            if (!bot.production) return
             clearTimeout(global.bumpTimeout)
             startBumpTimeout(bot)
         }

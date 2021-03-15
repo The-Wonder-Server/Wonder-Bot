@@ -1,18 +1,18 @@
-let { channels } = require('../config.json')
+let channels = require('@settings/channels')
 let { MessageEmbed } = require('discord.js')
 
 module.exports = {
     name: 'poll',
     run: ({ bot, args, message }) => {
-        if (!args) return message.channel.send('Supply message!')
-        let { author } = message
+        let question = args.join(' ')
+        if (!question) return message.channel.send('Supply message!')
         let embed = new MessageEmbed()
             .setColor(0x2F3136)
             .setTitle('POLL')
-            .setDescription(args.join(' '))
-            .setFooter(`Submitted by ${author.tag}`, author.avatarURL())
-        let channel = bot.channels.cache.get(channels.polls)
-        channel.send(embed)
+            .setDescription(question)
+            .setFooter(`Submitted by ${message.author.tag}`, message.author.avatarURL())
+        bot.channels.cache.get(channels.polls)
+            .send(embed)
             .then(async poll => {
                 await poll.react('🟢')
                 await poll.react('🟡')
