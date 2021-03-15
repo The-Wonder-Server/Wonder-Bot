@@ -15,7 +15,7 @@ module.exports = {
             .setThumbnail(member.user.avatarURL())
             .setTitle(`👋 Welcome to **${bot.guild.name}**`)
             .setDescription('Please introduce yourself in this channel!')
-            .setAuthor(`Invited by: ${invite.inviter.tag}`, invite.inviter.avatarURL())
+            .setFooter(`Invited by: ${invite.inviter.tag}`, invite.inviter.avatarURL())
         bot.channels.cache.get(channels.intro)
             .send({ content: member.user, embed })
             .catch(console.error)
