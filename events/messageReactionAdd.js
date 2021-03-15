@@ -15,7 +15,7 @@ module.exports = {
         if (!emojiName) return
         let roleID = roles[emojiName]
         if (!roleID) return
-        let role = guild.roles.cache.get(roleID)
+        let role = bot.guild.roles.cache.get(roleID)
         bot.guild.members.cache.get(user.id)
             .roles.add(role)
             .catch(console.error)
