@@ -17,7 +17,7 @@ module.exports = {
             .setDescription('Please introduce yourself in this channel!')
             .setAuthor(`Invited by: ${invite.inviter.tag}`, invite.inviter.avatarURL())
         bot.channels.cache.get(channels.intro)
-            .send({ content: user, embed })
+            .send({ content: member.user, embed })
             .catch(console.error)
     }
 }
