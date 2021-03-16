@@ -1,4 +1,3 @@
-// hello adas
 require('dotenv').config()
 require('module-alias/register')
 
